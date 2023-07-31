@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="a()">sg</button>
+    <p id="one"></p>
+    <script>
+        // function a() {
+        //    alert("result not found")
+        // }
+
+        // function a() {
+        //    var txt;
+        //    if (confirm("Jainism")) {
+        //        txt = "Divyang"
+        //    } else {
+        //        txt = "CMK"
+        //    }
+        //   document.getElementById('one').innerHTML = txt;
+        // }
+
+        function a() {
+            var txt;
+            var person = prompt("Enter your name","Tops")
+            if (person == null || person == "") {
+                txt ="please Enter Your Name"
+            }else {
+                txt = "hiii " +person+ " How Are You "
+            }
+            document.getElementById('one').innerHTML = txt;
+        }
+    </script>
+</body>
+</html>

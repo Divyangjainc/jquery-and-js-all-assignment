@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <style>
+        table,tr,th,td{
+            border: 2px solid green;
+            border-collapse: collapse;
+        }
+    </style>
+</head>
+<body>
+    <input type="text" id="one" placeholder="search...">
+    <br>
+    <br>
+    <table id="table">
+        <tr>
+            <th>SRNO</th>
+            <th>FIRST NAME</th>
+            <th>LAST NAME</th>
+            <th>EMAIL</th>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>PARESH</td>
+            <td>SOLANKI</td>
+            <td>pareshsolanki4498@gmail.com</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>MIHIR</td>
+            <td>PARATE</td>
+            <td>mihirparate1@gmail.com</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>JENISH</td>
+            <td>PATEL</td>
+            <td>jenishpatel2@gmail.com</td>
+        </tr>
+        <tr>
+            <td>4</td>
+            <td>PARAG</td>
+            <td>GORAD</td>
+            <td>paraggorad3@gmail.com</td>
+        </tr>
+        <tr>
+            <td>5</td>
+            <td>DIVYANG</td>
+            <td>JAIN</td>
+            <td>divyangjain4@gmail.com</td>
+        </tr>
+        <tr>
+            <td>6</td>
+            <td>DEV</td>
+            <td>PATEL</td>
+            <td>devpatel5.@gmail.com</td>
+        </tr>
+    </table>
+
+    <script>
+        $(document).ready(function () {
+            $("#one").on("keyup",function () {
+                var value = $(this).val().toLowerCase();
+                    $("#table tr").filter(function () {
+                        $(this).toggle($(this).text().toLowerCase().indexOf(value)>-1);
+                    });
+            });
+        });
+    </script>
+</body>
+</html>

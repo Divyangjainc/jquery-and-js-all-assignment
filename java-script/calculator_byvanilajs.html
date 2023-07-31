@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CALCULATOR</title>
+    <link rel = "stylesheet" href = "styles.css">
+    <script src="https://kit.fontawesome.com/c053682c38.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class = "settings">
+        <i class = "fas fa-cog"></i><br>
+        <!--<span class="settings-tiptool-text">Customize your own Calculator</span>-->
+        <div class = "settings-bar">
+            <h3>Customize as your own Calculator</h3>
+        </div>
+    </div>
+    
+    <div id = "grid-container">
+        
+        <div class = "output-section">
+            <div class = "questionbar"></div>
+            <div class = "answerbar">0</div> 
+        </div>
+            <div class = "button-group">
+                <button id="command" onclick = "commandFunction(0)" class = "span-2">AC</button>
+                <button id="command" onclick = "commandFunction(1)">Del</button>
+                <button id="operation" onclick = "opearationClickFunction(0)">+</button>
+
+                <button id="number" onclick = "numberClickFunction(0)">1</button>
+                <button id="number" onclick = "numberClickFunction(1)">2</button>
+                <button id="number" onclick = "numberClickFunction(2)">3</button>
+                <button id="operation" onclick = "opearationClickFunction(1)">-</button>
+
+                <button id="number" onclick = "numberClickFunction(3)">4</button>
+                <button id="number" onclick = "numberClickFunction(4)">5</button>
+                <button id="number" onclick = "numberClickFunction(5)">6</button>
+                <button id="operation" onclick = "opearationClickFunction(2)">*</button>
+
+                <button id="number" onclick = "numberClickFunction(6)">7</button>
+                <button id="number" onclick = "numberClickFunction(7)">8</button>
+                <button id="number" onclick = "numberClickFunction(8)">9</button>
+                <button id="operation" onclick = "opearationClickFunction(3)">/</button>
+
+                <button id="number" onclick = "numberClickFunction(9)">0</button>
+                <button id="equals" class = "span-2" onclick = "equalFunction()">=</button>
+                <button id="operation" onclick = "decimalPointFunction()">.</button>
+            </div>
+         </div>
+         <style>
+            html{
+                background-color:white;
+              }
+              
+              body{
+                margin:0;
+                positive:relative;
+                background:linear-gradient(#002fff , #00FFA2);
+              }
+              
+              .settings{
+                  z-index:1;
+                  font-size:1em;
+              }
+              
+              .settings-bar{
+                position:absolute;
+                right:0;
+              }
+              
+              i{
+                  position:absolute;
+                  top: 0;
+                  right:0;
+                  color:white;
+              }
+              
+              .settings-bar{
+                  margin-top:10px;
+                  width:100px;
+                  background: white;
+              }
+              
+              #grid-container{
+                  display: grid;
+                  justify-content: center;
+                  align-content: center;
+                  min-height: 100vh;
+                  grid-template-columns: repeat(4, 50px);
+                  grid-template-rows:100px
+              }
+              #grid-container .button-group{
+                  display: grid;
+                  grid-template-columns: 50px 50px 50px 50px;
+                  grid-template-rows: 50px 50px 50px 50px 50px;
+              }
+              
+              
+              .button-group{
+                  mix-blend-mode: screen;
+              }
+              
+              .output-section{
+                  grid-column: 1 / -1;
+                  background-color: rgba(0, 0, 0, .75);
+                  display: flex;
+                  align-items: flex-end;
+                  justify-content: space-around;
+                  flex-direction: column;
+                  padding: 10px;
+                  word-wrap: break-word;
+                  word-break: break-all;
+              }
+              
+              .span-2{
+                  grid-column: span 2;
+              }
+              
+              #grid-container .button-group button{
+                  transition:0.35s;
+                  font-family:Gotham Rounded , sans-serif;
+              }
+              
+              #grid-container .button-group button:hover{
+                 background: #002fff radial-gradient(circle, transparent 1%, #002fff 1%) center/15000%;
+                 color:white;
+                 border: none;
+              }
+              
+              #grid-container .button-group button:active{
+                  background-color: #6eb9f7;
+                  background-size: 100%;
+                  transition: background 0s;
+              }
+              
+              .answerbar{
+                  color:white;
+                  font-size: 2.0rem;
+              }
+              .questionbar{
+                  color:rgba(255, 255, 255, .75);
+                  font-size:1.5rem;
+              }
+
+        </style>
+        <script src = "Index.js"></script>
+        <script>
+        var number = document.querySelectorAll('#number');
+        var operation = document.querySelectorAll('#operation');
+        var answer = document.querySelector('.answerbar');
+        var question = document.querySelector('.questionbar');
+        var alertCard = document.querySelector('.alert-card');
+        var equation , firstPartPlusOpearator;
+        var times = 0;
+        var equal = 0;
+        var equationParts = [];
+
+        function numberClickFunction(x){
+        if(answer.textContent == '0'){
+        answer.textContent = number[x].textContent;
+        }
+        else{
+        answer.textContent += number[x].textContent;
+        }
+        if(equal == 1){
+        answer.textContent = '';
+        equal = 0;
+        }
+        }   
+
+        function commandFunction(x){
+        if(x == 0){
+        answer.textContent = ''
+        }
+        else if(x == 1){
+        answer.textContent = answer.textContent.slice(0 , -1);
+        }
+        }
+
+        function decimalPointFunction(){
+        if(answer.textContent.charAt(answer.textContent.length - 1) != '.' || (answer.textContent != '')){
+        answer.textContent += '.';
+        }
+        }
+
+        function opearationClickFunction(x){
+        if(question.textContent != ''){
+        times = 1;
+        equalFunction();
+        }
+        if(answer.textContent != ''){
+        equationParts = [];
+        answer.textContent += operation[x].textContent;
+        equationParts.push(answer.textContent.slice(0 , -1));
+        equationParts.push(answer.textContent.charAt(answer.textContent.length - 1));
+        question.textContent = answer.textContent;
+        answer.textContent = ''
+        firstPartPlusOpearator = equationParts.join("");
+        console.log(equationParts)
+        }
+    
+        }    
+
+        function equalFunction(){
+        if(answer.textContent != '' && answer.textContent != '0'){
+        if(times == 1){
+        equationParts.push(answer.textContent.replace(firstPartPlusOpearator , '')
+        .replace(answer.textContent.charAt(answer.textContent.length - 1) , ''));
+        times = 0;                
+        }
+        if(answer.textContent != ''){
+        equationParts.push(answer.textContent.replace(firstPartPlusOpearator , ''))
+        }    
+        if(equationParts[1] == '+'){
+        answer.textContent = parseFloat(equationParts[0]) + parseFloat(equationParts[2]);
+        question.textContent = '';
+        }
+        else if(equationParts[1] == '-'){
+        answer.textContent = parseFloat(equationParts[0]) - parseFloat(equationParts[2]);
+        question.textContent = '';
+        }
+        else if(equationParts[1] == '*'){
+        answer.textContent = parseFloat(equationParts[0]) * parseFloat(equationParts[2]);
+        question.textContent = '';
+        }
+        else{
+            answer.textContent = parseFloat(equationParts[0]) / parseFloat(equationParts[2]);
+            question.textContent = ''
+        }
+        console.log(equationParts)
+        equal = 1;
+    }
+    
+}
+</script>

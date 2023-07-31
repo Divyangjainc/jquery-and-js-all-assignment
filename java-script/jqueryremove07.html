@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <style>
+        div{
+            height: 200px;
+            width: 200px;
+            background-color: aqua;
+            border: 2px solid black;
+        }
+    </style>
+</head>
+<body>
+    <div>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Unde explicabo autem recusandae. Ipsam ratione explicabo recusandae quis ducimus aut doloribus consequatur nesciunt! Illo voluptas labore nesciunt molestiae commodi aliquam doloribus. </div>
+    <button>remove</button>
+    <script>
+        $(document).ready(function () {
+            $("button").click(function () {
+                $("div").empty()
+            })
+        })
+    </script>
+</body>
+</html>

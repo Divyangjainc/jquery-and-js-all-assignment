@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <style>
+        .one{
+            background-color: aqua;
+            color: blue;
+           
+        }
+    </style>
+</head>
+<body>
+    <p class="one">Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus, ipsum harum animi corporis repudiandae nemo beatae cupiditate atque! Consectetur quo est commodi sit modi impedit nulla quam omnis aspernatur eveniet!</p>
+    <h1 class="one">WELCOME</h1>
+    <h3 class="one">DIVYANG</h3>
+    <button>xyz</button>
+    <script>
+        $(document).ready(function () {
+            $("button").click(function () {
+                $("p,h1,h3").removeClass("one")
+            })
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <p id="one"></p>
+    <script>
+        // a = 20
+        // b = 20
+
+
+        // if
+        // if (a>b) {
+        //     document.write("a is bigger")
+        // }
+        // if else
+        // if (a>b) {
+        //     document.write("a is bigger")
+        // } else {
+        //     document.write("b is bigger")
+        // }
+        // else if
+        // if (a > b) {
+        //     document.write("a is bigger")
+        // } else if (a < b) {
+        //     document.write("b is bigger")
+        // }
+        // else {
+        //     document.write("gbjhdsgjhgfjhsdg")
+        // }
+        // swwitch
+        // day = 8
+        // switch (day) {
+        //     case 1:
+        //         document.write("mon")
+        //         break;
+        //     case 2:
+        //         document.write("tue")
+        //         break;
+
+        //     case 3:
+        //         document.write("wed")
+        //         break;
+
+        //     case 4:
+        //         document.write("thu")
+        //         break;
+
+        //     case 5:
+        //         document.write("fri")
+        //         break;
+
+        //     case 6:
+        //         document.write("sat")
+        //         break;
+
+        //     case 7:
+        //         document.write("sun")
+        //         break;
+
+        //     default:
+        //         document.write("def")
+        //         break;
+        // }
+        
+       var day
+        switch (new Date().getDay()) {
+            case 1:
+                day = mon
+        break;
+            case 2:
+                day = tue
+                break;
+
+            case 3:
+                day = wed
+                break;
+
+            case 4:
+                day = "thu"
+                break;
+
+            case 5:
+                day = fri
+                break;
+
+            case 6:
+                day = sat
+                break;
+
+            case 7:
+                day = sun
+               
+        }
+                document.getElementById('one').innerHTML = "today is = " +day;
+    </script>
+</body>
+
+</html>
